@@ -4,6 +4,7 @@ const gptSlice = createSlice({
   name: "gpt",
   initialState: {
     showGptSearch: false,
+    isTmdbSearch: null,
     movieResults: null,
     movieNames: null,
   },
@@ -12,9 +13,10 @@ const gptSlice = createSlice({
       state.showGptSearch = !state.showGptSearch;
     },
     addGptMovieResult: (state, action) => {
-      const { gptMovies, movieResults } = action.payload;
+      const { gptMovies, movieResults,tmbdSearch } = action.payload;
       state.movieResults = movieResults;
       state.movieNames = gptMovies;
+      state.isTmdbSearch = tmbdSearch;
     },
   },
 });

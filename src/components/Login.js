@@ -43,8 +43,8 @@ const Login = () => {
             displayName: name.current.value, photoURL: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTGKV11_9VuQiQy27PYxmHqeg_C_BvI4ckGv74VO57Btyb3_pk-MYBlj58IrBoQYb3KhVY&usqp=CAU"
           }).then(() => {
             
-          const { uid, email, displayName, photoURL } = auth.currentUser;
-          dispatch(addUser({ uid: uid, email: email, displayName: displayName,photoUrl: photoURL}));
+          const { uid, email, displayName, photoURL,emailVerified } = auth.currentUser;
+          dispatch(addUser({ uid: uid, email: email, displayName: displayName,photoUrl: photoURL,emailVerified:emailVerified}));
           }).catch((error) => {
             setErrorMessage(`${error.code}: ${error.message}`);
           });
@@ -74,7 +74,7 @@ const Login = () => {
       <Header />
       <div className="absolute">
         <img
-        className="h-screen object-cover"
+        className="h-screen w-screen object-cover"
           src={BACKGROUND_IMAGE}
           srcSet="https://assets.nflxext.com/ffe/siteui/vlv3/4da5d2b1-1b22-498d-90c0-4d86701dffcc/98a1cb1e-5a1d-4b98-a46f-995272b632dd/IN-en-20240129-popsignuptwoweeks-perspective_alpha_website_small.jpg 1000w, https://assets.nflxext.com/ffe/siteui/vlv3/4da5d2b1-1b22-498d-90c0-4d86701dffcc/98a1cb1e-5a1d-4b98-a46f-995272b632dd/IN-en-20240129-popsignuptwoweeks-perspective_alpha_website_medium.jpg 1500w, https://assets.nflxext.com/ffe/siteui/vlv3/4da5d2b1-1b22-498d-90c0-4d86701dffcc/98a1cb1e-5a1d-4b98-a46f-995272b632dd/IN-en-20240129-popsignuptwoweeks-perspective_alpha_website_large.jpg 1800w"
         />

@@ -13,13 +13,13 @@ const navigate = useNavigate();
   useEffect(() => {
     
     const unsubscribe = onAuthStateChanged(auth, (user) => {
-        console.log("changed");
+        
       if (user) {
         // User is signed in, see docs for a list of available properties
         // https://firebase.google.com/docs/reference/js/auth.user
-        const { uid, email, displayName, photoURL } = user;
-        dispatch(addUser({ uid: uid, email: email, displayName: displayName,photoUrl: photoURL}));
-        navigate('/browse');
+        const { uid, email, displayName, photoURL,emailVerified } = user;
+        dispatch(addUser({ uid: uid, email: email, displayName: displayName,photoUrl: photoURL,emailVerified:emailVerified}));
+        
         // ...
       } else {
         // User is signed out

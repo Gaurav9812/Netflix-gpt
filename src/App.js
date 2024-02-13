@@ -1,13 +1,14 @@
 
-import { Provider } from 'react-redux';
 import './App.css';
 import Body from './components/Body';
-import appStore from './utils/store';
-import { RouterProvider, createBrowserRouter } from 'react-router-dom';
+import { Navigate, RouterProvider, createBrowserRouter, useNavigate } from 'react-router-dom';
 import Login from './components/Login';
 import Browse from './components/Browse';
+import GrantGptAccess from './components/GrantGptAccess';
+import { useSelector } from 'react-redux';
 
 function App() {
+  const user = useSelector((store)=>store.user);
   
   const appRouter = createBrowserRouter([  
     {
@@ -16,11 +17,15 @@ function App() {
       children:[
         {
           path: "/",
-          element: <Login />,
+          element: user ? <Navigate to='/browse' /> : <Login />,
         },
         {
           path: "/browse",
           element: <Browse />,
+        },
+        {
+          path: "/grant-gpt-access",
+          element: <GrantGptAccess />,
         },
       ]
     },
@@ -28,9 +33,9 @@ function App() {
   ]);
 
   return (
-    <Provider store={appStore}> 
+    
     <RouterProvider router={appRouter} />
-    </Provider>
+    
   );
 }
 

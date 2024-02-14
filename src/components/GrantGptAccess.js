@@ -7,7 +7,8 @@ import { doc, setDoc } from "firebase/firestore";
 
 
 const GrantGptAccess = ()=>{
-    const user  = useSelector((store)=>store.user);
+
+  const user  = useSelector((store)=>store.user);
     const userUid = useRef(null);
     const [errorMessage, setErrorMessage] = useState("");
     const [successMessage, setSuccessMessage] = useState("");
@@ -16,7 +17,7 @@ const GrantGptAccess = ()=>{
         
         try {
             const user = await setDoc(doc(db, "netflix", "LA"), {
-                name: "Los Angeles",
+                name: "Los  Angeles",
                 state: "CA",
                 country: "USA"
               });

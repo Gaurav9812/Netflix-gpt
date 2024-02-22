@@ -47,16 +47,16 @@ const Body = () => {
             /* showGptSearch:showGptSearch */
           })
         );
-        console.log("user added");
+        
         navigate("/browse");
         // ...
       } else {
         // User is signed out
         // ...
         dispatch(removeUser());
-        console.log("user removeed");
+        
          navigate("/login",);
-        console.log("user re");
+        
         
       }
 

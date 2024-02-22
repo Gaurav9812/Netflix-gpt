@@ -51,7 +51,7 @@ const GptSearchBar = () => {
       );
       const json = await data.json();
       tmdbResults = json?.results;
-      console.log(tmdbResults);
+      
       tmbdSearch = true;
     }
 

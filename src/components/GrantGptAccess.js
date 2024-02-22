@@ -23,9 +23,9 @@ const GrantGptAccess = ()=>{
                 uuid:userUid.current.value,
                 showGptSearch:true
               });
-              console.log(user);
+              
         }catch(error){
-            console.log(error);
+            
         }
         
       }

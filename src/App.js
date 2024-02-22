@@ -9,7 +9,7 @@ import { useSelector } from 'react-redux';
 
 function App() {
   const user = useSelector((store)=>store.user);
-  console.log("App ",user ? "true" : "ffalse");
+  
   
   const appRouter = createBrowserRouter([  
     {

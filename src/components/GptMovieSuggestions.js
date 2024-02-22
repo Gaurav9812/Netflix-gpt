@@ -4,7 +4,7 @@ import MovieList from "./MovieList";
 const GptMovieSuggestions =()=>{
     const  {movieResults,movieNames,isTmdbSearch} = useSelector((store)=>{console.log(store.gpt); return store.gpt});
     if(!movieNames) return null;
-    console.log(isTmdbSearch);
+    
     return <div className="p-4 m-1 md:m-4 bg-black opacity-90 "> 
         {
             isTmdbSearch ? 

@@ -8,7 +8,6 @@ import GrantGptAccess from './components/GrantGptAccess';
 import { useSelector } from 'react-redux';
 
 function App() {
-  const user = useSelector((store)=>store.user);
   
   
   const appRouter = createBrowserRouter([  

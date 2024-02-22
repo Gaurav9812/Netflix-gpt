@@ -7,7 +7,7 @@ import { addGptMovieResult } from "../utils/gptSlice";
 const GptSearchBar = () => {
   const searchText = useRef(null);
   const dispatch = useDispatch();
-  const emailVerified = useSelector((store) => store.user?.emailVerified);
+  const showGptSearch = useSelector((store) => store.user?.showGptSearch);
 
   const searchMovieInTmdb = async (movie) => {
     const data = await fetch(
@@ -24,7 +24,7 @@ const GptSearchBar = () => {
     let gptMovies = q;
     let tmdbResults;
     let tmbdSearch;
-    if (emailVerified) {
+    if (showGptSearch) {
       const gptQuery =
         "Act as a movie recommendation system and suggest some movies for the query : " +
         q +
@@ -84,7 +84,7 @@ const GptSearchBar = () => {
         </button>
       </form>
       <p className="text-white bg-black p2">
-        {emailVerified ? (
+        {showGptSearch ? (
           "Gpt Search"
         ) : (
           <p className="p-1 text-red-500">

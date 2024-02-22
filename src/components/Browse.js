@@ -10,7 +10,7 @@ import { movieList } from "../utils/constants";
 const Browse = () => {
   const showGptSearch = useSelector((store) => store.gpt.showGptSearch);
 
-  
+  console.log("sadsa");
   useNowPlayingMovies();
   
   return (

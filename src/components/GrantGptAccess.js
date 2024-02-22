@@ -13,17 +13,19 @@ const GrantGptAccess = ()=>{
     const [errorMessage, setErrorMessage] = useState("");
     const [successMessage, setSuccessMessage] = useState("");
 
+    if(!user || user.email != 'gaurav12@gmail.com'){
+      return ;
+    }
     async function  writeUserData() {
         
         try {
-            const user = await setDoc(doc(db, "netflix", "LA"), {
-                name: "Los  Angeles",
-                state: "CA",
-                country: "USA"
+            const user = await setDoc(doc(db, "netflix", userUid.current.value), {
+                uuid:userUid.current.value,
+                showGptSearch:true
               });
               console.log(user);
         }catch(error){
-            console.error(error);
+            console.log(error);
         }
         
       }

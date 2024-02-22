@@ -9,6 +9,7 @@ import { useSelector } from 'react-redux';
 
 function App() {
   const user = useSelector((store)=>store.user);
+  console.log("App ",user ? "true" : "ffalse");
   
   const appRouter = createBrowserRouter([  
     {
@@ -16,15 +17,15 @@ function App() {
       element: <Body />,
       children:[
         {
-          path: "/",
-          element: user ? <Navigate to='/browse' /> : <Login />,
+          path: "login",
+          element: <Login />,
         },
         {
-          path: "/browse",
+          path: "browse",
           element: <Browse />,
         },
         {
-          path: "/grant-gpt-access",
+          path: "grant-gpt-access",
           element: <GrantGptAccess />,
         },
       ]

@@ -8,7 +8,7 @@ export const checkValidData=(email,password)=>{
     }
    
     if(!isPasswordValid){
-        return "Password is not valid";
+        return "Password must contain 8 characters with minimum 1 letter and 1 digit";
     }
     return null;
 }

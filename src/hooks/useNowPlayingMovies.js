@@ -16,11 +16,10 @@ const useNowPlayingMovies=()=>{
      
      
     useEffect(()=>{
-        
+     
         for(let key in movieList){
             
             if(!moviesListStore[key]){
-                
                 fetchNowPlayingMovies(key,movieList[key].fetchUrl);
             }
         }

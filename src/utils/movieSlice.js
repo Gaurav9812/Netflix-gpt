@@ -11,14 +11,21 @@ const movieSlice = createSlice({
   },
   reducers: {
     addNowPlayingMovies: (state, action) => {
+      console.log(action.payload.key);
       state[action.payload.key] = action.payload.results;
     },
     addTrailerVideo: (state, action) => {
       state.trailerVideo = action.payload;
     },
+    toggleUnmute: (state, action) => {
+      if(state.trailerVideo){
+        state.trailerVideo.unmute = !state.trailerVideo.unmute;
+      }
+      
+    },
   },
 });
 
-export const { addNowPlayingMovies ,addTrailerVideo } = movieSlice.actions;
+export const { addNowPlayingMovies ,addTrailerVideo,toggleUnmute } = movieSlice.actions;
 
 export default movieSlice.reducer;

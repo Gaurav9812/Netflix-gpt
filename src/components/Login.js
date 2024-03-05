@@ -87,8 +87,8 @@ const Login = () => {
   };
 
   return (
-    <div>
-      <Header />
+    <>
+      
       <div className="absolute">
         <img
           className="h-screen w-screen object-cover"
@@ -135,7 +135,7 @@ const Login = () => {
             : "Already register sign in"}
         </p>
       </form>
-    </div>
+    </>
   );
 };
 

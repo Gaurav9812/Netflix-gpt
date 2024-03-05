@@ -15,7 +15,6 @@ const MainContainer = ()=>{
         if(!movies) return; 
         const randMovie = Math.floor(Math.random()*movies.length);
         const mainMovies = movies[randMovie];
-        
         setMainMovies(mainMovies);
     },[movies]);
     if(!movies || !mainMovies) return; 

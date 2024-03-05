@@ -4,7 +4,17 @@ module.exports = {
     "./src/**/*.{js,jsx,ts,tsx}"
   ],
   theme: {
-    extend: {},
+    extend: {
+      animation:{
+          gradient: 'gradient 1s ease-in-out infinite'
+      },
+      keyframes:{
+        gradient:{
+          '0%, 100%': { opacity: 1 },
+          '50%': { opacity:0.5 },
+        }
+      }
+    },
   },
   plugins: [],
 }

@@ -13,6 +13,7 @@ import { useDispatch } from "react-redux";
 import { addUser, removeUser } from "../utils/userSlice";
 import { doc, getDoc } from "firebase/firestore";
 import { database } from "../utils/firebaseDb";
+import Header from "./Header";
 
 const Body = () => {
   const navigate = useNavigate();
@@ -48,15 +49,13 @@ const Body = () => {
           })
         );
         
-        navigate("/browse");
+        navigate("/home");
         // ...
       } else {
         // User is signed out
         // ...
         dispatch(removeUser());
-        
          navigate("/login",);
-        
         
       }
 
@@ -66,7 +65,7 @@ const Body = () => {
       unsubscribe();
     };
   }, []);
-  return <Outlet />;
+  return (<div> <Header /> <Outlet /></div>);
 };
 
 export default Body;

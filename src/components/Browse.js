@@ -11,20 +11,13 @@ const Browse = () => {
   const showGptSearch = useSelector((store) => store.gpt.showGptSearch);
 
   
-  useNowPlayingMovies();
-  
   return (
-    <div>
-      <Header />
-      {showGptSearch ? (
+    <>
+      
+      
         <GptSearch />
-      ) : (
-        <>
-          <MainContainer />
-          <SecondaryContainer />
-        </>
-      )}
-    </div>
+      
+    </>
   );
 };
 

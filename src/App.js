@@ -6,6 +6,8 @@ import Login from './components/Login';
 import Browse from './components/Browse';
 import GrantGptAccess from './components/GrantGptAccess';
 import { useSelector } from 'react-redux';
+import WatchVideo from './components/WatchVideo';
+import HomePage from './components/HomePage';
 
 function App() {
   
@@ -24,8 +26,16 @@ function App() {
           element: <Browse />,
         },
         {
+          path: "home",
+          element: <HomePage />,
+        },
+        {
           path: "grant-gpt-access",
           element: <GrantGptAccess />,
+        },
+        {
+          path: "watch-video/:videoId",
+          element: <WatchVideo />,
         },
       ]
     },

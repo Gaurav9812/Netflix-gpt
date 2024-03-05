@@ -5,6 +5,9 @@ module.exports = {
   ],
   theme: {
     extend: {
+      transitionDuration: {
+        '2000': '2000ms',
+      },
       animation:{
           gradient: 'gradient 1s ease-in-out infinite'
       },

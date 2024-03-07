@@ -12,12 +12,7 @@ const Browse = () => {
 
   
   return (
-    <>
-      
-      
         <GptSearch />
-      
-    </>
   );
 };
 

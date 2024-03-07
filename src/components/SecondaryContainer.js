@@ -5,7 +5,6 @@ import MovieListShimmer from "./MovieListShimmer";
 
 const SecondaryContainer = () => {
   const movies = useSelector((store) => store.movies);
-  if (!movies.nowPlayingMovies) return;
 
   return (
     <div className="bg-black">

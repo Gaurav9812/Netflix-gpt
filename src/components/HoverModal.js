@@ -18,11 +18,11 @@ const HoverModal = ({
          originalTitle,
         genreIds,
        voteAverage,
-       voteCount)
+       voteCount,config)
   const { left, top, width, height } = config;
   return (
     <div
-      className={`absolute text-white z-10`}
+      className={`absolute text-white z-20`}
       style={{ left: left, top: top, width: width, height: height }}
     >
         <img src={IMAGE_CDN_URL + posterPath} />

@@ -18,14 +18,28 @@ const MovieCard = ({ id: movieId, poster_path: posterPath, ...restParams }) => {
   if (!posterPath) return;
 
   const handleMouseOver = () => {
-    
     if (!hover) {
       let movieCardCurrent = movieCard.current;
-      let left = movieCardCurrent.getBoundingClientRect().x -50;
-      let top = movieCardCurrent.getBoundingClientRect().y + window.scrollY -50;
-      let width = movieCardCurrent.offsetWidth + 50;
-      let height = movieCardCurrent.offsetHeight + 50;
-      console.log(left, top);
+      let left = movieCardCurrent.getBoundingClientRect().x - 75;
+      if (movieCardCurrent.getBoundingClientRect().x < 75) {
+        left = movieCardCurrent.getBoundingClientRect().x;
+      }
+
+      let top = movieCardCurrent.getBoundingClientRect().y + window.scrollY - 75;
+
+      let width = movieCardCurrent.offsetWidth + 150;
+      let height = movieCardCurrent.offsetHeight + 150;
+      
+      if (
+        document.body.offsetHeight <=
+        movieCardCurrent.getBoundingClientRect().y + window.scrollY + height -75
+      ) {
+        top = movieCardCurrent.getBoundingClientRect().y + window.scrollY - (movieCardCurrent.getBoundingClientRect().y + window.scrollY + height-(document.body.offsetHeight));
+      }
+      
+      if(document.body.offsetWidth <= movieCardCurrent.getBoundingClientRect().x+width){
+        left = movieCardCurrent.getBoundingClientRect().x-(movieCardCurrent.getBoundingClientRect().x+width-document.body.offsetWidth)-20;
+      }
       setHoverConfig({
         left: left,
         top: top,
@@ -33,41 +47,39 @@ const MovieCard = ({ id: movieId, poster_path: posterPath, ...restParams }) => {
         height: height,
       });
     }
-    timer.current = setTimeout(()=>{
-      console.log('timer in');
+    timer.current = setTimeout(() => {
+      console.log("timer in");
       setHover(true);
-    },1000)
+    }, 1000);
   };
 
   const handleMouseOut = () => {
     clearTimeout(timer.current);
-    setHover(false)  
+    setHover(false);
   };
 
-  
   return (
-    <div onMouseEnter={handleMouseOver}
-    onMouseLeave={handleMouseOut}
-    ref={movieCard}
-    className="w-36 md:w-48 px-2 ml-4 cursor-pointer overflow-hidden"
+    <div
+      onMouseEnter={handleMouseOver}
+      onMouseLeave={handleMouseOut}
+      ref={movieCard}
+      className="w-36 md:w-48 px-2 ml-4 cursor-pointer overflow-hidden"
     >
       {hover &&
         createPortal(
           <HoverModal
             config={hoverConfig}
+            movieId={movieId}
             {...restParams}
             poster_path={posterPath}
           />,
           document.body
         )}
-      <Link
-        to={`/watch-video/${movieId}`}
-      >
+      <Link to={`/watch-video/${movieId}`}>
         <img
           src={IMAGE_CDN_URL + posterPath}
           alt="Movie Card"
           className="transition duration-[2000ms] hover:scale-125 "
-          
         />
       </Link>
     </div>

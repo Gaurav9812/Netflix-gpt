@@ -1,6 +1,6 @@
 import { useRef } from "react";
 import openai from "../utils/openai";
-import { API_OPTIONS } from "../utils/constants";
+import { API_OPTIONS, makeFunctionDebounce } from "../utils/constants";
 import { useDispatch, useSelector } from "react-redux";
 import { addGptMovieResult } from "../utils/gptSlice";
 
@@ -18,8 +18,8 @@ const GptSearchBar = () => {
     const json = await data.json();
     return json?.results;
   };
-
   const handleGptSearch = async () => {
+    
     const q = searchText.current.value;
     let gptMovies = q;
     let tmdbResults;
@@ -64,6 +64,8 @@ const GptSearchBar = () => {
     );
   };
 
+  const handleGptSearchDebounced = makeFunctionDebounce(handleGptSearch,1000);
+
   return (
     <div className="pt-[40%] md:pt-[10%] flex flex-col justify-center items-center">
       <form
@@ -78,7 +80,7 @@ const GptSearchBar = () => {
         />
         <button
           className="py-1 md:py-2 px-4 bg-red-700 text-white col-span-3 m-3 nd:m-4 rounded-lg"
-          onClick={handleGptSearch}
+          onClick={handleGptSearchDebounced}
         >
           Search
         </button>

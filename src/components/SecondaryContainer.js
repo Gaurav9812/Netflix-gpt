@@ -7,7 +7,7 @@ const SecondaryContainer = () => {
   const movies = useSelector((store) => store.movies);
 
   return (
-    <div className="bg-black">
+    <div className="bg-[#000000]">
       <div className="mt-0 md:-mt-24 z-20 pl-2 md:pl-0 relative">
         {Object.keys(movieList).map((movie, index) => {
           if (movies[movie]) {

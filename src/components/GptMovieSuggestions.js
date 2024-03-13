@@ -2,7 +2,7 @@ import { useSelector } from "react-redux";
 import MovieList from "./MovieList";
 
 const GptMovieSuggestions =()=>{
-    const  {movieResults,movieNames,isTmdbSearch} = useSelector((store)=>{console.log(store.gpt); return store.gpt});
+    const  {movieResults,movieNames,isTmdbSearch} = useSelector((store)=>{ return store.gpt});
     if(!movieNames) return null;
     
     return <div className="p-4 m-1 md:m-4 bg-black opacity-90 "> 
